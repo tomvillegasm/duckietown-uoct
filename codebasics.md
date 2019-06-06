@@ -10,6 +10,11 @@ A[PC]--USB-->B[Arduino]
 * _Rosserial-Client_: El Arduino leyendo sensores y publicando al servidor
 * _Rosserial-Server_: Nodo publicador
 
+### Enlaces Relacionados
+
+[Arduino IDE Setup](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup)
+
+
 ### Ejemplo Blinking Led con ROS
 ```
 #include <ros.h>
@@ -30,3 +35,8 @@ void  loop()
 nh.spinOnce();
 delay(1);
 }
+```
+
+| A | B |
+| - | - |
+| C | D |
