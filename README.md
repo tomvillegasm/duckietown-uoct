@@ -3,7 +3,9 @@
 
 El presente proyecto tiene como objetivo implementar un sistema de semáforos sincronizados en las calles de Duckietown.
 
-# Conexión USB
+# Conexión
+
+![usb-conection](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/usb-conection.png)
 
 >Se necesita una conexión USB para controlar cada Arduino, ejecución en paralelo puede requerir un Hub de entradas USB.
 
@@ -99,7 +101,11 @@ rostopic pub toggle_led std_msgs/Empty --once
 
 # Conexión Ethernet
 
+![ethernet-conection](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/ethernet-conection.png)
+
 >Cada arduino estará conectado a un Router mediante cables Ethernet, formando una red LAN. El computador que envíe las instrucciones realiza una conexión vía Ethernet al Router e identifica cada Arduino mediante su dirección IP estática.
+
+![ethernet-view](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/ethernet-view.png)
 
 **Beneficios**:
 1. Se reemplazan las múltiples conexiones USB por Arduino al computador por una única conexión Ethernet y múltiples IP estáticas.
