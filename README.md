@@ -3,7 +3,11 @@
 
 El presente proyecto tiene como objetivo implementar un sistema de semáforos sincronizados en las calles de Duckietown.
 
-# Conexión
+Cada semáforo constará de dos luces red lgb, una por cada vía donde se ubica el semáforo.
+
+**[Insertar diseño 3D de los semáforos e indicar posición de las luces led]**
+
+# Conexión USB
 
 ![usb-conection](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/usb-conection.png)
 
