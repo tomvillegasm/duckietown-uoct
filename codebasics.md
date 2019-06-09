@@ -1,8 +1,16 @@
+# Concepto
+
+
+
 ```mermaid
 graph LR
 A[PC]--USB-->B[Arduino]
 ```
 * Para conectar ROS con Arduino se necesita usar la librería **rosserial_arduino**.
+
+# Requisitos Previos
+
+*
 
 ### Entendiendo _rosserial_
 [Introducción a rosserial_arduino](https://atadiat.com/en/e-rosserial-arduino-introduction/)
