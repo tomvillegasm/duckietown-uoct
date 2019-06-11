@@ -1,5 +1,5 @@
 #include <ros.h>
-//Importa la librería ROS
+//Importa la libreria ROS
 #include <std_msgs/Empty.h>
 //Establece tipo de datos a intercambiar (nada)
 
@@ -9,11 +9,11 @@ ros::NodeHandle  nh;
 void messageCb( const std_msgs::Empty& toggle_msg)
 {
   digitalWrite(LED_BUILTIN, HIGH-digitalRead(LED_BUILTIN));
-  //La instrucción que el hardware realizará
+  //La instruccion que el hardware realizara
 }
 
 ros::Subscriber<std_msgs::Empty> sub("/duckietown-uoct/stoplight/blink", &messageCb );
-//Establece el tópico al que se subscribirá y el tipo de datos a intercambiar (nada)
+//Establece el topico al que se subscribira y el tipo de datos a intercambiar (nada)
 
 void setup()
 { 
@@ -22,7 +22,7 @@ void setup()
   nh.initNode();
   //Ejecuta el nodo
   nh.subscribe(sub);
-  //Se subscribe al tópico
+  //Se subscribe al topico
 }
 
 void loop()
