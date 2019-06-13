@@ -8,9 +8,9 @@ from std_msgs.msg import Empty, String
 from time import sleep
 #Para hacer delay
 
-rospy.init_node('blink')
+rospy.init_node('light')
 #Inicia el nodo y le pone nombre
-pub = rospy.Publisher('/duckietown-uoct/stoplight/blink', Empty, queue_size=7)
+pub = rospy.Publisher('light', Empty, queue_size=7)
 #Estructura del tipo (nombre-de-topico,tipo-de-dato,cantidad-instrucciones-acumuladas)
 #Aqui se crea el topico
 

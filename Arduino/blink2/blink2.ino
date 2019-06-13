@@ -3,7 +3,7 @@
 #include <std_msgs/Empty.h>
 //Establece tipo de datos a intercambiar (nada)
 
-ros::NodeHandle  nh;
+ros::NodeHandle  nh("blink2");
 //Crea un nodo para ROS
 
 void messageCb( const std_msgs::Empty &toggle_msg)
