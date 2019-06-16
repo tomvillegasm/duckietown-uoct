@@ -1,33 +1,71 @@
 #include <ros.h>
-//Importa la libreria ROS
-#include <std_msgs/Empty.h>
-//Establece tipo de datos a intercambiar (nada)
+#include <std_msgs/Int16.h>
 
 ros::NodeHandle  nh;
-//Crea un nodo para ROS
 
-void messageCb( const std_msgs::Empty &toggle_msg)
+int on= 255;
+int off= 0;
+int rpl= 11;
+int gpl= 10;
+int bpl= 9;
+int rpr= 6;
+int gpr= 5;
+int bpr= 3;
+
+void led(int red, int green, int blue)
 {
-  digitalWrite(LED_BUILTIN, HIGH-digitalRead(LED_BUILTIN));
-  //La instruccion que el hardware realizara
+  analogWrite(rpl,red);
+  analogWrite(gpl,red);
+  analogWrite(bpl,red);
+  analogWrite(rpr,red);
+  analogWrite(gpr,red);
+  analogWrite(bpr,red);
 }
 
-ros::Subscriber<std_msgs::Empty> sub("duckietown-uoct/stoplight/master", &messageCb );
-//Establece el topico al que se subscribira y el tipo de datos a intercambiar (nada)
+std_msgs::Int16 slave;
+ros::Publisher pub("uoct/stoplight/slave", &slave);
+
+// RBG == 012
+void master( const std_msgs::Int16 &msg)
+{
+  if (msg.data == 0)
+  {
+    digitalWrite(LED_BUILTIN,HIGH);
+    led(on,off,off);
+    slave.data = 2;
+    pub.publish(&slave);
+  }
+  if (msg.data == 1)
+  {
+    digitalWrite(LED_BUILTIN,LOW);
+    led(off,on,off);
+  }
+  if (msg.data == 2)
+  {
+    digitalWrite(LED_BUILTIN,LOW);
+    led(off,on,off);
+    slave.data = 0;
+    pub.publish(&slave);
+  }
+}
+
+ros::Subscriber<std_msgs::Int16> sub("uoct/stoplight/master", &master);
 
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
-  //El pin13 es configurado como una salida
+  pinMode(rpl, OUTPUT);
+  pinMode(gpl, OUTPUT);
+  pinMode(bpl, OUTPUT);
+  pinMode(rpr, OUTPUT);
+  pinMode(gpr, OUTPUT);
+  pinMode(bpr, OUTPUT);
   nh.initNode();
-  //Ejecuta el nodo
   nh.subscribe(sub);
-  //Se subscribe al topico
+  nh.advertise(pub);
 }
 
 void loop()
 {
   nh.spinOnce();
-  //Mantiene el nodo activo y actualiza su estado
-  delay(1);
 }

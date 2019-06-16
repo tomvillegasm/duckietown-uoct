@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Empty, String
+from std_msgs.msg import Empty, String, Int16
 from time import sleep
 
 rospy.init_node('stoplight_master')
-pub = rospy.Publisher('duckietown-uoct/stoplight/master', Empty, queue_size=7)
+pub = rospy.Publisher('uoct/stoplight/master', Int16, queue_size=1)
 
-i=1
+# RGB == 012
 while not rospy.is_shutdown():
-    print 'Rojo A ' + str(i)
-    pub.publish()
+    pub.publish(1)
     sleep(5)
-    print 'Verde A' + str(i)
-    pub.publish()
-    print '-------'
+    pub.publish(2)
     sleep(5)
-    i+=1
+    pub.publish(0)
+    sleep(5)
