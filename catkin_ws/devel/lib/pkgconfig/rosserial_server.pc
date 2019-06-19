@@ -1,0 +1,8 @@
+prefix=/home/tomvillegasm/duckietown-uoct/catkin_ws/devel
+
+Name: rosserial_server
+Description: Description of rosserial_server
+Version: 0.8.0
+Cflags: -I/home/tomvillegasm/duckietown-uoct/catkin_ws/src/rosserial/rosserial_server/include
+Libs: -L/home/tomvillegasm/duckietown-uoct/catkin_ws/devel/lib 
+Requires: roscpp rosserial_msgs std_msgs topic_tools
