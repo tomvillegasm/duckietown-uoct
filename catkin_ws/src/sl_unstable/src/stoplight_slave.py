@@ -15,6 +15,3 @@ def cross(msg):
         pub.publish(0)
 
 sub = rospy.Subscriber('uoct/stoplight/master', Int16, cross)
-
-while not rospy.is_shutdown():
-    cross()

@@ -21,34 +21,35 @@ void ledA(int red, int green, int blue)
   analogWrite(bpA,blue);
 }
 void ledB(int red, int green, int blue)
+{
   analogWrite(rpB,red);
   analogWrite(gpB,green);
   analogWrite(bpB,blue);
 }
 
 // RBG == 012
-void core( const std_msgs::Int16 &light)
+void core(const std_msgs::Int16 &msg)
 {
-  if (light.data == 0)
+  if (msg.data == 0)
   {
     digitalWrite(LED_BUILTIN,HIGH);
     ledA(on,off,off);
     ledB(off,on,off);
   }
-  if (light.data == 1)
+  if (msg.data == 1)
   {
     digitalWrite(LED_BUILTIN,LOW);
     ledA(off,on,off);
     ledB(on,off,off);
   }
-  if (light.data == 2)
+  if (msg.data == 2)
   {
     ledA(off,off,on);
     ledB(off,off,on);
   }
 }
 
-ros::Subscriber<std_msgs::Int16> sub("uoct/stoplight/master", &core);
+ros::Subscriber<std_msgs::Int16> sub("/timing/uoct/stoplight/master", &core);
 
 void setup()
 {
@@ -61,7 +62,6 @@ void setup()
   pinMode(bpB, OUTPUT);
   nh.initNode();
   nh.subscribe(sub);
-  nh.advertise(pub);
 }
 
 void loop()

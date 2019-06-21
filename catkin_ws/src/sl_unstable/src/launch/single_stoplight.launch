@@ -1,0 +1,11 @@
+<launch>
+  <group ns="station">
+    <node name="intersection_1" pkg="rosserial_python" type="serial_node.py" args="" output="log" respawn="false">
+      <param name="port" value="/dev/ttyACM0"/>
+    </node>
+  </group>
+  <group ns="timing">
+    <node name="master" pkg="stoplight" type="stoplight_master.py" args="" output="screen" respawn="true">
+    </node>
+  </group>
+</launch>

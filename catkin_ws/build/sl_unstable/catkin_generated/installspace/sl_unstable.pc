@@ -1,0 +1,8 @@
+prefix=/home/tomvillegasm/duckietown-uoct/catkin_ws/install
+
+Name: sl_unstable
+Description: Description of sl_unstable
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tomvillegasm/duckietown-uoct/catkin_ws/install/lib 
+Requires: 
