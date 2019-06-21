@@ -3,63 +3,62 @@
 
 ros::NodeHandle  nh;
 
-int on= 255;
+int on= 125;
 int off= 0;
-int rpl= 11;
-int gpl= 10;
-int bpl= 9;
-int rpr= 6;
-int gpr= 5;
-int bpr= 3;
 
-void led(int red, int green, int blue)
+int rpA= 11;
+int gpA= 10;
+int bpA= 9;
+
+int rpB= 6;
+int gpB= 5;
+int bpB= 3;
+
+void ledA(int red, int green, int blue)
 {
-  analogWrite(rpl,red);
-  analogWrite(gpl,red);
-  analogWrite(bpl,red);
-  analogWrite(rpr,red);
-  analogWrite(gpr,red);
-  analogWrite(bpr,red);
+  analogWrite(rpA,red);
+  analogWrite(gpA,green);
+  analogWrite(bpA,blue);
 }
-
-std_msgs::Int16 slave;
-ros::Publisher pub("uoct/stoplight/slave", &slave);
+void ledB(int red, int green, int blue)
+  analogWrite(rpB,red);
+  analogWrite(gpB,green);
+  analogWrite(bpB,blue);
+}
 
 // RBG == 012
-void master( const std_msgs::Int16 &msg)
+void core( const std_msgs::Int16 &light)
 {
-  if (msg.data == 0)
+  if (light.data == 0)
   {
     digitalWrite(LED_BUILTIN,HIGH);
-    led(on,off,off);
-    slave.data = 2;
-    pub.publish(&slave);
+    ledA(on,off,off);
+    ledB(off,on,off);
   }
-  if (msg.data == 1)
+  if (light.data == 1)
   {
     digitalWrite(LED_BUILTIN,LOW);
-    led(off,on,off);
+    ledA(off,on,off);
+    ledB(on,off,off);
   }
-  if (msg.data == 2)
+  if (light.data == 2)
   {
-    digitalWrite(LED_BUILTIN,LOW);
-    led(off,on,off);
-    slave.data = 0;
-    pub.publish(&slave);
+    ledA(off,off,on);
+    ledB(off,off,on);
   }
 }
 
-ros::Subscriber<std_msgs::Int16> sub("uoct/stoplight/master", &master);
+ros::Subscriber<std_msgs::Int16> sub("uoct/stoplight/master", &core);
 
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(rpl, OUTPUT);
-  pinMode(gpl, OUTPUT);
-  pinMode(bpl, OUTPUT);
-  pinMode(rpr, OUTPUT);
-  pinMode(gpr, OUTPUT);
-  pinMode(bpr, OUTPUT);
+  pinMode(rpA, OUTPUT);
+  pinMode(gpA, OUTPUT);
+  pinMode(bpA, OUTPUT);
+  pinMode(rpB, OUTPUT);
+  pinMode(gpB, OUTPUT);
+  pinMode(bpB, OUTPUT);
   nh.initNode();
   nh.subscribe(sub);
   nh.advertise(pub);
