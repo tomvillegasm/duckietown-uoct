@@ -3,7 +3,7 @@
 
 ros::NodeHandle  nh;
 
-int on= 125;
+int on= 255;
 int off= 0;
 
 int rpA= 11;
