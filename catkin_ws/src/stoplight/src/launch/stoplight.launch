@@ -1,11 +1,22 @@
+<!-- Respawn sirve para que ROS reviva el ejecutable (.py) en caso de malfunción y cierre, puede entrar en bucle si el código a revivir está mal hecho -->
+<!-- Dato freak, este archivo automáticamente genera un roscore -->
 <launch>
+  <!-- Crea un namespace para odenar los nodos y permitir repetición de nombres de nodo entre los distitnos grupos -->
+  <!-- Aquí viven todos los nodos-semáforo que se conectarán a ROS, favor de mantener la estructura para tener un buen output en rqt_graph -->
   <group ns="station">
+    <!-- Crea el nombre del nodo, utiliza los recursos de rosserial -->
     <node name="intersection_1" pkg="rosserial_python" type="serial_node.py" args="" output="log" respawn="false">
+      <!-- ROS hará del puerto indicado (ver Arduino IDE para saber qué poner en tty) un nodo -->
       <param name="port" value="/dev/ttyUSB0"/>
     </node>
   </group>
+  <!-- Crea el namespace donde viven los nodos que trabajan los tiempo del semáforo -->
   <group ns="timing">
+    <!-- Se otorga un nombre al nodo, se dice su paquete, se dice el nombre del archivo -->
     <node name="master" pkg="stoplight" type="stoplight_master.py" args="" output="screen" respawn="true">
     </node>
   </group>
 </launch>
+
+<!-- Se recomiendo totalmente usar rqt_graph para entender el orden que este .launch genera -->
+<!-- Dentro de cada namespace (ns) se puede añadir cuantos nodos se necesiten-->
