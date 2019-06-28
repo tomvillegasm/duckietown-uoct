@@ -14,7 +14,7 @@ pub = rospy.Publisher('uoct/stoplight/master', Int16, queue_size=7)
 
 # Clave de comunicacion de colores: RGB == 012
 
-# Mientras ROS esté vivo (roscore), esto se ejecuta
+# Mientras ROS este vivo (roscore), esto se ejecuta
 while not rospy.is_shutdown():
     pub.publish(1)
     sleep(5)
