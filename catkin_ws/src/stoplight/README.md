@@ -2,6 +2,8 @@
 
 Este directorio contiene todos los elementos referentes a los semáforos sincronizados de Duckietown.
 
+![2019-1-18](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-18.jpg)
+
 > UOCT nace con este proyecto, toda la estructura de trabajo aquí es análoga para los otros proyectos debido a la misma implementación Hardware-Software requerida.
 
 > Se ruega ser meticuloso y explicativo al momento de editar esta guía y directorio, pues son una planitlla para todos los futuros proyectos que se anexen a UOCT.
