@@ -10,4 +10,4 @@
 
 # ¡Arduino Nano es prolemático!
 
-* Si el _sketch_ lanza un error recurrente al subir el archivo, utilizar el antiguo _bootloader_.
+* Si el _sketch_ lanza un error recurrente al subir el archivo, utilizar el antiguo _bootloader_ en las opciones de IDE.
