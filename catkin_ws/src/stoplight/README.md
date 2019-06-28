@@ -106,8 +106,8 @@ while not rospy.is_shutdown():
 Para que los semáforos tenga un efecto en el funcionamiento de los duckiebots, estos deben ser capaces de interpretar los colores que estos emiten.
 
 <center><p float="left">
-  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-15.jpg" width="400"/>
-  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-16.jpg" width="400"/>
+  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-15.jpg" width="350"/>
+  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-16.jpg" width="350"/>
 </p></center>
 
 > !Falta avanzar los aspectos técnicos!

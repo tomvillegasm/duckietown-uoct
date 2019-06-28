@@ -9,6 +9,9 @@
 Como base existen tres proyectos que Duckietown necesita para mejor la calidad del tránsito:
 
 **Semáforos** [(_stoplight_)](https://github.com/tomvillegasm/duckietown-uoct/tree/master/catkin_ws/src/stoplight)
+
+![2019-1-18](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-18.jpg)
+
 * Red de semáforos sincronizados que asegura un cruce seguro a los patones (peatones pato) y un flujo ordenado de los duckiebots (autos autónomos).
 
 **Vigilancia** [(_surveillance_)](https://github.com/tomvillegasm/duckietown-uoct/tree/master/catkin_ws/src/surveillance)
