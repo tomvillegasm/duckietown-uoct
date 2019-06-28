@@ -2,11 +2,11 @@
 
 Este directorio contiene todos los elementos referentes a los semáforos sincronizados de Duckietown.
 
-![2019-1-18](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-18.jpg)
+![2019-1-14](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-14.jpg)
 
 > UOCT nace con este proyecto, toda la estructura de trabajo aquí es análoga para los otros proyectos debido a la misma implementación Hardware-Software requerida.
 
-> Se ruega ser meticuloso y explicativo al momento de editar esta guía y directorio, pues son una planitlla para todos los futuros proyectos que se anexen a UOCT.
+> Se solicita ser meticuloso y explicativo al momento de editar esta guía y directorio, pues son una planitlla para todos los futuros proyectos que se anexen a UOCT.
 
 > Imágenes obtenidas desde el renderizador de diagramas web _mermaid_ (disponible en internet), el visor gráfico _rqt graph_ (proporcionado por ROS), y el quipo de trabajo UOCT-Semáforos 2019.
 
@@ -104,5 +104,10 @@ while not rospy.is_shutdown():
 ## Reconocimiento de semáforos
 
 Para que los semáforos tenga un efecto en el funcionamiento de los duckiebots, estos deben ser capaces de interpretar los colores que estos emiten.
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-15.jpg" width="300" aling="middle"/>
+  <img src="https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-15.jpg) ![2019-1-16](https://raw.githubusercontent.com/tomvillegasm/duckietown-uoct/master/img/uoct-stoplight/2019-1-16.jpg" width="300" aling="middle"/> 
+</p>
 
 > !Falta avanzar los aspectos técnicos!
