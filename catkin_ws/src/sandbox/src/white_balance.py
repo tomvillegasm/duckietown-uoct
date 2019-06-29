@@ -9,18 +9,19 @@ from cv_bridge import CvBridge # importar convertidor de formato de imagenes
 class Template(object):
 
     def __init__(self, args):
-		super(Template, self).__init__()
-		self.args = args
+        super(Template, self).__init__()
+        self.args = args
         # Suscribe a la imagen pura de la camara
-		self.sub_raw=rospy.Subscriber("usb_cam/image_raw", Image, self.contrast)
+        self.sub_raw=rospy.Subscriber("usb_cam/image_raw", Image, self.contrast)
         # Publica una imagen con balance de blancos
-		self.pub_eq=rospy.Publisher("usb_cam/image_raw/white_balance", Image, queue_size=10)
+        self.pub_eq=rospy.Publisher("img/white_balance", Image, queue_size=10)
+        # Convierte imagenes al formato extranio de cv2
+        self.bridge = CvBridge()
 
     # Procesa las imagenes para mejorar el contraste de blancos
     def contrast(self,msg):
-        bridge = CvBridge()
-        # Convierte la imagen desde BGR
-        img = bridge.imgmsg_to_cv2(msg,"bgr8")
+        # Convierte la imagen desde BGR a cv2
+        img = self.bridge.imgmsg_to_cv2(msg,"bgr8")
         # Separa la imagen en sus canales de color BGR (RGB)
         blue_channel,green_channel,red_channel = cv2.split(img)
         # Se aplica el ajuste de contraste a cada canal de color
@@ -29,8 +30,8 @@ class Template(object):
         r = cv2.equalizeHist(red_channel)
         # Se juntan todos los canales de regreso a una sola imagen
         img_new = cv2.merge( (b,g,r) )
-        # Reconvierte la imagen a BGR
-        img_eq = bridge.cv2_to_imgmsg(img_new,"bgr8")
+        # Reconvierte la imagen desde cv2 a BGR
+        img_eq = self.bridge.cv2_to_imgmsg(img_new,"bgr8")
         # Se publica la imagen con balance de blancos
         self.pub_eq.publish(img_eq)
 
