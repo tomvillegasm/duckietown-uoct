@@ -40,7 +40,6 @@ class Template(object):
             sec = (sec/10)*10 + var
         slef.chrono.data[0] = min
         slef.chrono.data[1] = sec
-        print slef.chrono
         return slef.chrono
 
 # Conjunto de ejecuciones iniciales
