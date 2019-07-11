@@ -2,7 +2,7 @@ prefix=/home/tomvillegasm/duckietown-uoct/catkin_ws/devel
 
 Name: sandbox
 Description: Description of sandbox
-Version: 0.0.0
-Cflags: 
+Version: 0.0.1
+Cflags: -I/home/tomvillegasm/duckietown-uoct/catkin_ws/devel/include
 Libs: -L/home/tomvillegasm/duckietown-uoct/catkin_ws/devel/lib 
-Requires: 
+Requires: roscpp rospy std_msgs message_runtime

@@ -320,6 +320,12 @@ UBUNTU:BOOL=TRUE
 //LSB Distrib - codename tag
 UBUNTU_BIONIC:BOOL=TRUE
 
+//Value Computed by CMake
+UOCT_BINARY_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/build/UOCT
+
+//Value Computed by CMake
+UOCT_SOURCE_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/src/UOCT
+
 //Path to a file.
 _file_name:FILEPATH=/home/tomvillegasm/duckietown-uoct/catkin_ws/src/rosserial/rosserial_test/test/rosserial_python_socket.test
 
@@ -611,6 +617,14 @@ surveillance_SOURCE_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/src/
 
 //The directory containing a CMake configuration file for topic_tools.
 topic_tools_DIR:PATH=/opt/ros/melodic/share/topic_tools/cmake
+
+//Value Computed by CMake
+uoct_BINARY_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/build/uoct
+
+uoct_DIR:PATH=
+
+//Value Computed by CMake
+uoct_SOURCE_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/src/uoct
 
 //Value Computed by CMake
 usb_cam_BINARY_DIR:STATIC=/home/tomvillegasm/duckietown-uoct/catkin_ws/build/usb_cam

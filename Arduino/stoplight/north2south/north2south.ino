@@ -3,34 +3,34 @@
 
 ros::NodeHandle  nh;
 
-int rpA= 11;
-int gpA= 10;
-int bpA= 9;
+int rpA= 6;
+int gpA= 5;
+int bpA= 3;
 
-int rpB= 6;
-int gpB= 5;
-int bpB= 3;
+int rpB= 11;
+int gpB= 10;
+int bpB= 9;
 
 // RBG == 012
 void led(const std_msgs::Int16MultiArray& msg)
 {
-    
-  if (msg.data[0]==255)
+
+  if (msg.data[1]==255)
   {
     digitalWrite(LED_BUILTIN,HIGH);
   }
-  if (msg.data[0]==0)
+  if (msg.data[1]==0)
   {
     digitalWrite(LED_BUILTIN,LOW);
   }
-    
+
   analogWrite(rpA,msg.data[0]);
   analogWrite(gpA,msg.data[1]);
   analogWrite(bpA,msg.data[2]);
 
-  analogWrite(rpB,msg.data[3]);
-  analogWrite(gpB,msg.data[4]);
-  analogWrite(bpB,msg.data[5]);
+  analogWrite(rpB,msg.data[0]);
+  analogWrite(gpB,msg.data[1]);
+  analogWrite(bpB,msg.data[2]);
 }
 
 ros::Subscriber<std_msgs::Int16MultiArray> sub("stoplight/north2south", &led);

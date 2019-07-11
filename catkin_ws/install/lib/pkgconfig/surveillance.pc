@@ -1,0 +1,8 @@
+prefix=/home/tomvillegasm/duckietown-uoct/catkin_ws/install
+
+Name: surveillance
+Description: Description of surveillance
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tomvillegasm/duckietown-uoct/catkin_ws/install/lib 
+Requires: 
