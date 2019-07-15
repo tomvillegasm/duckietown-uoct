@@ -1,0 +1,19 @@
+En la presente carpeta se encuentran las piezas componentes del semáforo para Duckietown.
+
+Puntos a mencionar:
+
+  - El semáforo se compone de dos pilares, los cuales sostienen una viga superior de la cual
+sobresalen dos cajas donde van ubicados las luces LED (semáforo). Además se creó una caseta (caja)
+para poder salvaguardar el arduino controlador de las luces (tiene las medidas para un arduino nano).
+
+  - El semáforo esta pensado y diseñado para que en su interior solo vaya el cableado y los LED, es por
+esto que se crea la "caseta arduino" y las piezas "Tapa_sacado" 1 y 2 en pilares.
+
+  - En cada carpeta se encuentran las piezas como coponentes y sus respectivos planos para
+poder ser editados, modificados, etc.
+
+  - El semáforo se construyó en madera MDF de 3mm de espesor, es por esto que el espesor y los encajes
+de las piezas llevan esas medidas.
+
+  - "Plano_joint" es el Sketch donde se importaron todas las piezas y se hizo la prueba de enzamblaje, por
+lo que si surge alguna duda del ensamblaje del semáforo, se recomienda revisar dicho archivo.
